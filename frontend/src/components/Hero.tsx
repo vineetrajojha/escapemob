@@ -45,20 +45,20 @@ export default function Hero() {
                     ref={subtitleRef}
                     className="text-muted-foreground text-sm md:text-base mb-6 tracking-wide"
                 >
-                    Start building now
+                    All projects here is designed to deliver impact, not just impressions.
                 </span>
 
                 <h1
                     ref={titleRef}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-10 leading-[1.1]"
                 >
-                    Site into something <br />
-                    <span className="text-muted-foreground">exceptional design</span>
+                    Marketing that <span className="italic font-serif">moves</span>  <br />
+                    <span className="text-muted-foreground"><span className="italic font-serif">the</span> needle.</span>
                 </h1>
 
                 <div ref={buttonRef}>
                     <Button variant="primary" className="!px-8 !py-4 text-lg">
-                        Buy Template
+                        Get A Quote
                     </Button>
                 </div>
             </div>
