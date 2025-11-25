@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/CustomCursor";
 
+import Preloader from "@/components/Preloader";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -11,7 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "EscapeMob",
-  description: "Escape the norm with our saas agency."
+  description: "Escape the norm with our saas agency.",
+  icons: {
+    icon: "./logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -28,6 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Preloader />
           <CustomCursor />
           {children}
         </ThemeProvider>
