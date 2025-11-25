@@ -8,16 +8,16 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-20">
                 {/* Brand */}
                 <div className="col-span-2 md:col-span-3">
-                    <h2 className="text-2xl font-bold text-foreground mb-8">Marklab</h2>
+                    <h2 className="text-2xl font-bold text-foreground mb-8">Escapemob</h2>
                     <div className="space-y-4 text-muted-foreground text-sm">
                         <p className="font-semibold text-foreground">Office</p>
                         <p>
-                            11 Garden, Town Hills
+                            Greater Noida
                             <br />
-                            Dubai, UAE 13690
+                            Uttar Pradesh, India 201308
                         </p>
                         <p className="font-semibold text-foreground mt-6">Email</p>
-                        <p>example@marklab.com</p>
+                        <p>escapemob@gmail.com</p>
                     </div>
                 </div>
 

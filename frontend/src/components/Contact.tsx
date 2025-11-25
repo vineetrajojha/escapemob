@@ -18,18 +18,18 @@ const Contact = () => {
                             </span>
                         </h2>
                         <p className="text-muted-foreground text-lg md:text-xl mb-8 max-w-lg mx-auto lg:mx-0">
-                            No bots, no scripts—just real experts ready to help you grow.
+                            No bots, no scripts, just real experts ready to help you grow.
                         </p>
 
                         <div className="hidden lg:block space-y-4 text-muted-foreground">
                             <p>
-                                <strong>Email:</strong> hello@escapemob.com
+                                <strong>Email:</strong> escapemob@gmail.com
                             </p>
                             <p>
-                                <strong>Phone:</strong> +1 (555) 123-4567
+                                <strong>Phone:</strong> +91 97175 04789
                             </p>
                             <p>
-                                <strong>Address:</strong> 123 Digital Ave, Tech City, TC 90210
+                                <strong>Address:</strong> Greater Noida, Uttar Pradesh, India
                             </p>
                         </div>
                     </div>
