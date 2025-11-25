@@ -40,9 +40,9 @@ export default function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative min-h-screen flex flex-col justify-center pt-20 pb-40 overflow-hidden"
+            className="relative min-h-screen flex flex-col justify-center pt-32 pb-24 lg:pt-20 lg:pb-40 overflow-hidden"
         >
-            <div className="grid lg:grid-cols-2 items-center gap-12 px-4 max-w-7xl mx-auto w-full z-10">
+            <div className="grid lg:grid-cols-2 items-center gap-8 lg:gap-12 px-4 max-w-7xl mx-auto w-full z-10">
                 {/* Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10" />
 
@@ -57,7 +57,7 @@ export default function Hero() {
 
                     <h1
                         ref={titleRef}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-10 leading-[1.1]"
+                        className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-foreground mb-10 leading-[1.1]"
                     >
                         Marketing that <span className="italic font-serif">moves</span>  <br />
                         <span className="text-muted-foreground"><span className="italic font-serif">the</span> needle.</span>
@@ -88,13 +88,13 @@ export default function Hero() {
             </div>
 
             {/* Logo Ticker */}
-            <div className="absolute bottom-0 left-0 w-full py-10 bg-background/50 backdrop-blur-sm z-20">
-                <p className="text-center text-sm text-muted-foreground mb-8">
+            <div className="relative lg:absolute bottom-0 left-0 w-full py-6 lg:py-10 bg-background/50 backdrop-blur-sm z-20 mt-12 lg:mt-0">
+                <p className="text-center text-sm text-muted-foreground mb-4 lg:mb-8">
                     Be part of the 100+ businesses transforming their digital presence.
                 </p>
                 <div className="overflow-hidden w-full">
                     <div className="flex w-[200%] animate-scroll">
-                        <div className="flex w-1/2 justify-around items-center gap-8 px-8">
+                        <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
                             {logos.map((logo, i) => (
                                 <div key={i} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                                     <Image
@@ -102,12 +102,12 @@ export default function Hero() {
                                         alt={logo.name}
                                         width={180}
                                         height={60}
-                                        className="object-contain h-16 w-auto"
+                                        className="object-contain h-8 md:h-12 lg:h-16 w-auto"
                                     />
                                 </div>
                             ))}
                         </div>
-                        <div className="flex w-1/2 justify-around items-center gap-8 px-8">
+                        <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
                             {logos.map((logo, i) => (
                                 <div key={`dup-${i}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                                     <Image
@@ -115,7 +115,7 @@ export default function Hero() {
                                         alt={logo.name}
                                         width={180}
                                         height={60}
-                                        className="object-contain h-16 w-auto"
+                                        className="object-contain h-8 md:h-12 lg:h-16 w-auto"
                                     />
                                 </div>
                             ))}

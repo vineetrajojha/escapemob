@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 const reviews = [
     {
@@ -27,7 +29,13 @@ const reviews = [
 const Testimonials = () => {
     return (
         <section className="py-20 overflow-hidden bg-background relative z-10">
-            <div className="container mx-auto px-4 mb-12 text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" as const }}
+                className="container mx-auto px-4 mb-12 text-center"
+            >
                 <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
                     Client <span className="italic font-serif text-muted-foreground">Stories</span>
                 </h2>
@@ -35,9 +43,15 @@ const Testimonials = () => {
                     Don't just take our word for it. Here's what our partners have to say
                     about working with us.
                 </p>
-            </div>
+            </motion.div>
 
-            <div className="relative w-full overflow-hidden">
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="relative w-full overflow-hidden"
+            >
                 {/* Gradient Masks for smooth fade effect at edges */}
                 <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
                 <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
@@ -89,7 +103,7 @@ const Testimonials = () => {
                         )
                     )}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };

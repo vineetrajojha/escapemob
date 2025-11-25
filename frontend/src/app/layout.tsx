@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Marklab Clone",
-  description: "A pixel-perfect clone of the Marklab website.",
+  title: "EscapeMob",
+  description: "Escape the norm with our saas agency."
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>
