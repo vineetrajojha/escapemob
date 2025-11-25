@@ -1,59 +1,69 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import TiltCard from "./TiltCard";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Search, MousePointerClick, Bell, FileText } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
     {
-        icon: <Search size={32} className="text-blue-400" />,
-        title: "Search engine optimization",
-        description:
-            "We optimize your website structure, content, and backlink profile to improve rankings, boost traffic.",
-        bg: "bg-blue-500/10",
+        title: "Creative Campaigns",
+        description: "Unique ad concepts that grab attention and stick with your audience.",
+        image: "/assets/services/creative.png",
+        colSpan: "md:col-span-2",
     },
     {
-        icon: <MousePointerClick size={32} className="text-purple-400" />,
-        title: "Pay-per-click advertising",
-        description:
-            "Google Ads to Facebook, we manage your budget efficiently, craft compelling ads, and continuously test.",
-        bg: "bg-purple-500/10",
+        title: "Media Buying & Planning",
+        description: "Strategically placing ads across digital, print, TV, and outdoor channels.",
+        image: "/assets/services/media.png",
+        colSpan: "md:col-span-2",
     },
     {
-        icon: <Bell size={32} className="text-orange-400" />,
-        title: "Social media marketing",
-        description:
-            "We create scroll-stopping content, manage your platforms, and engage your community to grow.",
-        bg: "bg-orange-500/10",
+        title: "Website Design",
+        description: "Crafting high-performance websites that drive conversions and elevate your brand.",
+        image: "/assets/services/",
+        colSpan: "md:col-span-2",
     },
     {
-        icon: <FileText size={32} className="text-pink-400" />,
-        title: "Content Marketing",
-        description:
-            "We optimize your website structure, content, and backlink profile to improve rankings, boost traffic.",
-        bg: "bg-pink-500/10",
+        title: "Social Media Marketing",
+        description: "Maximize the potential of your social platforms by converting engagement into loyal customers.",
+        image: "/assets/services/social.png",
+        colSpan: "md:col-span-3",
+    },
+    {
+        title: "Brand Strategy",
+        description: "From brand identity to market positioning, we guide every step to ensure your brand resonates and stands out.",
+        image: "/assets/services/brand.png",
+        colSpan: "md:col-span-3",
     },
 ];
 
 export default function Services() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const cardsRef = useRef<HTMLDivElement[]>([]);
+    const sectionRef = useRef(null);
+    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.from(cardsRef.current, {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 80%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power3.out",
-            });
+            const cards = cardsRef.current.filter((card) => card !== null);
+
+            gsap.fromTo(
+                cards,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse",
+                    },
+                }
+            );
         }, sectionRef);
 
         return () => ctx.revert();
@@ -61,38 +71,63 @@ export default function Services() {
 
     return (
         <section ref={sectionRef} className="py-24 px-4 max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground max-w-lg leading-tight">
-                    Smart <span className="italic font-serif">Service</span> <br />
-                    <span className="italic font-serif">That</span> Real Impact.
+            <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                    We have <span className="italic font-serif text-muted-foreground">build </span><br /><span className="italic font-serif text-muted-foreground">more </span> projects.
                 </h2>
-                <button className="bg-primary text-primary-foreground px-6 py-3 rounded-full flex items-center gap-2 mt-6 md:mt-0 hover:bg-primary/90 transition-colors">
-                    Let's Contact
-                    <span className="bg-background text-primary rounded-full p-1 w-5 h-5 flex items-center justify-center text-xs">
-                        ↗
-                    </span>
-                </button>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                    Data driven strategies designed to attract, convert, and retain your ideal customers.
+                </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
                 {services.map((service, index) => (
-                    <div
+                    <TiltCard
                         key={index}
-                        ref={(el) => {
+                        ref={(el: HTMLDivElement | null) => {
                             if (el) cardsRef.current[index] = el;
                         }}
-                        className={`p-8 rounded-3xl ${service.bg} hover:bg-opacity-20 transition-all duration-300 cursor-pointer group border border-transparent hover:border-border`}
+                        className={`group relative ${service.colSpan}`}
                     >
-                        <div className="mb-6 w-16 h-16 rounded-2xl bg-background/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                            {service.icon}
+                        {/* Outer Wrapper (Border Gradient & Dot) */}
+                        <div className="relative h-full w-full rounded-[10px] p-[1px] bg-[radial-gradient(circle_at_0%_0%,#ffffff,#0c0d0d)]">
+                            {/* Animated Dot */}
+                            <motion.div
+                                className="absolute w-[5px] h-[5px] bg-white rounded-full shadow-[0_0_10px_#ffffff] z-20"
+                                animate={{
+                                    top: ["10%", "10%", "calc(100% - 30px)", "calc(100% - 30px)", "10%"],
+                                    right: ["10%", "calc(100% - 35px)", "calc(100% - 35px)", "10%", "10%"],
+                                }}
+                                transition={{
+                                    duration: 6,
+                                    ease: "linear",
+                                    repeat: Infinity,
+                                }}
+                            />
+
+                            {/* Inner Card */}
+                            <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[radial-gradient(circle_280px_at_0%_0%,#444444,#0c0d0d)] overflow-hidden flex flex-col">
+                                {/* Ray */}
+                                <div className="absolute top-0 left-0 w-[220px] h-[45px] bg-[#c7c7c7] opacity-40 blur-[10px] rounded-[100px] rotate-[40deg] origin-[10%_0%] shadow-[0_0_50px_#fff]" />
+
+                                {/* Lines */}
+                                <div className="absolute top-[10%] left-0 w-full h-[1px] bg-gradient-to-r from-[#888888] via-[#1d1f1f] to-[#1d1f1f] opacity-50" />
+                                <div className="absolute bottom-[10%] left-0 w-full h-[1px] bg-[#2c2c2c] opacity-50" />
+                                <div className="absolute left-[10%] top-0 w-[1px] h-full bg-gradient-to-b from-[#747474] via-[#222424] to-[#222424] opacity-50" />
+                                <div className="absolute right-[10%] top-0 w-[1px] h-full bg-[#2c2c2c] opacity-50" />
+
+                                {/* Content Container */}
+                                <div className="relative z-10 flex flex-col h-full items-center justify-center text-center p-8 min-h-[300px]">
+                                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white via-white to-gray-500 bg-clip-text text-transparent">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-base leading-relaxed max-w-sm">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 className="text-xl font-semibold text-foreground mb-4">
-                            {service.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                            {service.description}
-                        </p>
-                    </div>
+                    </TiltCard>
                 ))}
             </div>
         </section>

@@ -1,7 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Services from "@/components/Services";
-import Features from "@/components/Features";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -36,9 +39,24 @@ export default function Home() {
 
       <div className="relative z-10">
         <Navbar />
-        <Hero />
-        <Services />
-        <Features />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        <section id="faqs">
+          <FAQ />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
         <Footer />
       </div>
       <ThemeToggle />

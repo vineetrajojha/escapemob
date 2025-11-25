@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Instagram, Youtube, Facebook, Twitter } from "lucide-react";
 
 export default function Footer() {
     return (
         <footer className="pt-24 pb-12 px-4 border-t border-border bg-background">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 mb-20">
+            <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-20">
                 {/* Brand */}
-                <div className="md:col-span-4">
+                <div className="col-span-2 md:col-span-3">
                     <h2 className="text-2xl font-bold text-foreground mb-8">Marklab</h2>
                     <div className="space-y-4 text-muted-foreground text-sm">
                         <p className="font-semibold text-foreground">Office</p>
@@ -22,39 +22,49 @@ export default function Footer() {
                 </div>
 
                 {/* Links */}
-                <div className="md:col-span-2">
-                    <h3 className="text-blue-400 font-medium mb-6">Main</h3>
+                <div className="col-span-1 md:col-span-2">
+                    <h3 className="text-blue-400 font-medium mb-6">Jump to</h3>
                     <ul className="space-y-4 text-muted-foreground text-sm">
-                        <li><Link href="#" className="hover:text-foreground">Home</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">About</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Works</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Blog</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Pricing</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Contact</Link></li>
+                        <li><Link href="#home" className="hover:text-foreground">Home</Link></li>
+                        <li><Link href="#about" className="hover:text-foreground">About</Link></li>
+                        <li><Link href="#services" className="hover:text-foreground">Services</Link></li>
+                        <li><Link href="#testimonials" className="hover:text-foreground">Testimonials</Link></li>
+                        <li><Link href="#faqs" className="hover:text-foreground">FAQs</Link></li>
                     </ul>
                 </div>
 
-                <div className="md:col-span-2">
-                    <h3 className="text-blue-400 font-medium mb-6">Single</h3>
+                <div className="col-span-1 md:col-span-2">
+                    <h3 className="text-blue-400 font-medium mb-6">Contact Us</h3>
                     <ul className="space-y-4 text-muted-foreground text-sm">
-                        <li><Link href="#" className="hover:text-foreground">Work Single</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Blog Single</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Pricing Single</Link></li>
+                        <li><Link href="#contact" className="hover:text-foreground">Get a Quote</Link></li>
+
                     </ul>
                 </div>
 
-                <div className="md:col-span-1">
-                    <h3 className="text-blue-400 font-medium mb-6">Utility</h3>
-                    <ul className="space-y-4 text-muted-foreground text-sm">
-                        <li><Link href="#" className="hover:text-foreground">Style Guide</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">License</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">Change Log</Link></li>
-                        <li><Link href="#" className="hover:text-foreground">404</Link></li>
-                    </ul>
+                <div className="col-span-2 md:col-span-2">
+                    <h3 className="text-blue-400 font-medium mb-6">Follow Us</h3>
+                    <div className="flex gap-4 text-muted-foreground">
+                        <Link href="#" className="hover:text-foreground transition-colors">
+                            <Instagram size={20} />
+                            <span className="sr-only">Instagram</span>
+                        </Link>
+                        <Link href="#" className="hover:text-foreground transition-colors">
+                            <Youtube size={20} />
+                            <span className="sr-only">Youtube</span>
+                        </Link>
+                        <Link href="#" className="hover:text-foreground transition-colors">
+                            <Facebook size={20} />
+                            <span className="sr-only">Facebook</span>
+                        </Link>
+                        <Link href="#" className="hover:text-foreground transition-colors">
+                            <Twitter size={20} />
+                            <span className="sr-only">Twitter</span>
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Newsletter */}
-                <div className="md:col-span-3">
+                <div className="col-span-2 md:col-span-3">
                     <h3 className="text-foreground font-bold text-xl mb-4">
                         Newsletter for updates
                     </h3>
