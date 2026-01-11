@@ -171,6 +171,57 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            {/* Team Section */}
+            <div className="mt-20 lg:mt-32">
+                <h3 className="text-3xl md:text-5xl font-bold text-center mb-16">
+                    Meet Our <span className="italic font-serif text-muted-foreground">Team</span>
+                </h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {[
+                        { name: "Rounit Kumar", role: "Founder & CEO", image: "/assets/rounit-kumar.jpg" },
+                        { name: "Vineet Raj", role: "Tech Head", image: "/assets/vineet-raj.png" },
+                        { name: "Baibhav Aryan Raj", role: "Operation Manager", image: "" }
+                    ].map((member, index) => (
+                        <TiltCard key={index} className="group relative w-full aspect-square">
+                            <div className="relative h-full w-full rounded-2xl p-[1px] bg-gradient-to-b from-white/20 to-transparent">
+                                <div className="relative h-full w-full rounded-[15px] bg-[#0c0d0d] overflow-hidden flex flex-col items-center justify-center p-6 transition-all duration-500 group-hover:bg-[#111]">
+
+                                    {/* Background Glow */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                    {/* Image Container */}
+                                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full mb-6 p-1 border border-white/10 group-hover:border-primary/50 transition-colors duration-300">
+                                        <div className="w-full h-full rounded-full overflow-hidden bg-white/5 relative">
+                                            {member.image ? (
+                                                <img
+                                                    src={member.image}
+                                                    alt={member.name}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                />
+                                            ) : (
+                                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-black">
+                                                    <span className="text-3xl font-bold text-gray-500">{member.name.charAt(0)}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Text Content */}
+                                    <div className="relative z-10 text-center">
+                                        <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">
+                                            {member.name}
+                                        </h4>
+                                        <p className="text-sm md:text-base text-muted-foreground font-medium tracking-wide uppercase">
+                                            {member.role}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </TiltCard>
+                    ))}
+                </div>
+            </div>
         </section>
     );
 }

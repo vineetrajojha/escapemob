@@ -55,7 +55,7 @@ export default function Footer() {
                             Uttar Pradesh, India 201308
                         </p>
                         <p className="font-semibold text-foreground mt-6">Email</p>
-                        <p>escapemob@gmail.com</p>
+                        <p>teamescapemob@gmail.com</p>
                     </div>
                 </motion.div>
 

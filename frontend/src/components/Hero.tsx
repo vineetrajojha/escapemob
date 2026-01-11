@@ -13,7 +13,19 @@ export default function Hero() {
     const buttonRef = useRef(null);
 
     // Create an array of logos (repeating the single logo for the ticker)
-    const logos = Array(7).fill({ name: "EscapeMob", icon: logoImg });
+    // Partner logos
+    const partnerLogos = [
+        "/assets/partners/1.png",
+        "/assets/partners/2.png",
+        "/assets/partners/3.png",
+        "/assets/partners/4.png",
+        "/assets/partners/5.png",
+        "/assets/partners/6.png",
+        "/assets/partners/7.png",
+        "/assets/partners/8.png",
+        "/assets/partners/9.png",
+        "/assets/partners/10.png",
+    ];
 
     useEffect(() => {
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -90,16 +102,16 @@ export default function Hero() {
             {/* Logo Ticker */}
             <div className="relative lg:absolute bottom-0 left-0 w-full py-6 lg:py-10 bg-background/50 backdrop-blur-sm z-20 mt-12 lg:mt-0">
                 <p className="text-center text-sm text-muted-foreground mb-4 lg:mb-8">
-                    Be part of the 100+ businesses transforming their digital presence.
+                    Growth Partner
                 </p>
                 <div className="overflow-hidden w-full">
                     <div className="flex w-[200%] animate-scroll">
                         <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
-                            {logos.map((logo, i) => (
+                            {partnerLogos.map((logo, i) => (
                                 <div key={i} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                                     <Image
-                                        src={logo.icon}
-                                        alt={logo.name}
+                                        src={logo}
+                                        alt={`Partner ${i + 1}`}
                                         width={180}
                                         height={60}
                                         className="object-contain h-8 md:h-12 lg:h-16 w-auto"
@@ -108,11 +120,11 @@ export default function Hero() {
                             ))}
                         </div>
                         <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
-                            {logos.map((logo, i) => (
+                            {partnerLogos.map((logo, i) => (
                                 <div key={`dup-${i}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                                     <Image
-                                        src={logo.icon}
-                                        alt={logo.name}
+                                        src={logo}
+                                        alt={`Partner ${i + 1}`}
                                         width={180}
                                         height={60}
                                         className="object-contain h-8 md:h-12 lg:h-16 w-auto"

@@ -44,8 +44,14 @@ const CustomCursor = () => {
 
     return (
         <div className="max-lg:hidden z-[9999] pointer-events-none fixed inset-0 overflow-hidden">
-            <div className="follower w-[50px] h-[50px] rounded-full bg-transparent border-black dark:border-white border-2 border-solid fixed z-50 pointer-events-none top-0 left-0"></div>
-            <div className="cursorCustom w-[10px] h-[10px] rounded-full bg-black dark:bg-white fixed z-50 pointer-events-none top-0 left-0"></div>
+            <div
+                className="follower w-[50px] h-[50px] rounded-full bg-transparent border-2 border-solid fixed z-50 pointer-events-none top-0 left-0 transition-colors duration-200"
+                style={{ borderColor: 'var(--cursor-color)' }}
+            ></div>
+            <div
+                className="cursorCustom w-[10px] h-[10px] rounded-full fixed z-50 pointer-events-none top-0 left-0 transition-colors duration-200"
+                style={{ backgroundColor: 'var(--cursor-color)' }}
+            ></div>
         </div>
     );
 }

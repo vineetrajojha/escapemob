@@ -72,7 +72,7 @@ export default function Navbar() {
                     <Link href="#about" className="hover:text-foreground transition-colors">About</Link>
                     <Link href="#services" className="hover:text-foreground transition-colors">Services</Link>
                     <Link href="#testimonials" className="hover:text-foreground transition-colors">Testimonials</Link>
-                    <Link href="#faqs" className="hover:text-foreground transition-colors">FAQs</Link>
+                    <Link href="#projects" className="hover:text-foreground transition-colors">Projects</Link>
                 </div>
 
                 {/* Desktop CTA */}
