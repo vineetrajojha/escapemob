@@ -100,34 +100,34 @@ export default function Hero() {
             </div>
 
             {/* Logo Ticker */}
-            <div className="relative lg:absolute bottom-0 left-0 w-full py-6 lg:py-10 bg-background/50 backdrop-blur-sm z-20 mt-12 lg:mt-0">
-                <p className="text-center text-sm text-muted-foreground mb-4 lg:mb-8">
+            <div className="relative lg:absolute bottom-0 left-0 w-full py-8 lg:py-12 bg-background/30 backdrop-blur-md z-20 mt-12 lg:mt-0 border-t border-white/5">
+                <p className="text-center text-xl md:text-2xl font-serif italic text-muted-foreground/80 mb-8 lg:mb-12 tracking-wide">
                     Growth Partner
                 </p>
                 <div className="overflow-hidden w-full">
                     <div className="flex w-[200%] animate-scroll">
-                        <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
+                        <div className="flex w-1/2 justify-around items-center gap-8 lg:gap-12 px-8">
                             {partnerLogos.map((logo, i) => (
-                                <div key={i} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                                <div key={i} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
                                     <Image
                                         src={logo}
                                         alt={`Partner ${i + 1}`}
-                                        width={180}
-                                        height={60}
-                                        className="object-contain h-8 md:h-12 lg:h-16 w-auto"
+                                        width={200}
+                                        height={80}
+                                        className="object-contain h-16 md:h-20 lg:h-24 w-auto"
                                     />
                                 </div>
                             ))}
                         </div>
-                        <div className="flex w-1/2 justify-around items-center gap-4 lg:gap-8 px-8">
+                        <div className="flex w-1/2 justify-around items-center gap-8 lg:gap-12 px-8">
                             {partnerLogos.map((logo, i) => (
-                                <div key={`dup-${i}`} className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                                <div key={`dup-${i}`} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
                                     <Image
                                         src={logo}
                                         alt={`Partner ${i + 1}`}
-                                        width={180}
-                                        height={60}
-                                        className="object-contain h-8 md:h-12 lg:h-16 w-auto"
+                                        width={200}
+                                        height={80}
+                                        className="object-contain h-16 md:h-20 lg:h-24 w-auto"
                                     />
                                 </div>
                             ))}
