@@ -1,8 +1,8 @@
-# Escape Mob
-## Project Description
+
+# Project Description
 Escape Mob is a web application built using Next.js, providing a platform for users to explore and engage with various services and projects. The application features a modern design, with a focus on user experience and accessibility. Key features include a hero section, about page, services, projects, and a contact form.
 
-## Project Structure
+# Project Structure
 ```text
 .
 ├── frontend/                # Application core logic
@@ -29,7 +29,7 @@ Escape Mob is a web application built using Next.js, providing a platform for us
 └── ...
 ```
 
-## Getting Started / Local Development
+# Getting Started / Local Development
 To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/vineetrajojha/escapemob.git`
@@ -38,17 +38,16 @@ To run the project locally, follow these steps:
 4. Start the development server: `npm run dev`
 5. Open the application in your web browser: `http://localhost:3000`
 
-## Deployment / Hosting
+# Deployment / Hosting
 To deploy the application, you can use Vercel, a popular platform for hosting Next.js applications. Create a Vercel account, link your GitHub repository, and follow the deployment instructions.
 
-## Useful CLI Commands
+# Useful CLI Commands
 * `npm run dev`: Start the development server
 * `npm run build`: Build the application for production
 * `npm run start`: Start the production server
 
-## Support & Contribution
+# Support & Contribution
 For support and contribution guidelines, please refer to the following resources:
-* [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 * [GitHub Issues](https://github.com/vineetrajojha/escapemob/issues)
 
 
