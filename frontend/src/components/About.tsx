@@ -137,7 +137,7 @@ export default function About() {
                                     />
 
                                     {/* Inner Card */}
-                                    <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[radial-gradient(circle_280px_at_0%_0%,#444444,#0c0d0d)] overflow-hidden flex flex-col">
+                                    <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[#0c0d0d] overflow-hidden flex flex-col">
                                         {/* Ray */}
                                         <div className="absolute top-0 left-0 w-[220px] h-[45px] bg-[#c7c7c7] opacity-40 blur-[10px] rounded-[100px] rotate-[40deg] origin-[10%_0%] shadow-[0_0_50px_#fff]" />
 
@@ -191,7 +191,7 @@ export default function About() {
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                     {/* Image Container */}
-                                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full mb-6 p-1 border border-white/10 group-hover:border-primary/50 transition-colors duration-300">
+                                    <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full mb-6 p-1 border border-[#202222] group-hover:border-primary/50 transition-colors duration-300">
                                         <div className="w-full h-full rounded-full overflow-hidden bg-white/5 relative">
                                             {member.image ? (
                                                 <img
@@ -201,7 +201,7 @@ export default function About() {
                                                 />
                                             ) : (
                                                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-black">
-                                                    <span className="text-3xl font-bold text-gray-500">{member.name.charAt(0)}</span>
+                                                    <span className="text-3xl font-bold text-[#EBEBEB]/60">{member.name.charAt(0)}</span>
                                                 </div>
                                             )}
                                         </div>

@@ -9,34 +9,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
     {
-        title: "Creative Campaigns",
-        description: "Unique ad concepts that grab attention and stick with your audience.",
-        image: "/assets/services/creative.png",
+        title: "Marketing",
+        description: "We use strategic marketing tactics that have been proven to work.",
         colSpan: "md:col-span-2",
     },
     {
-        title: "Media Buying & Planning",
-        description: "Strategically placing ads across digital, print, TV, and outdoor channels.",
-        image: "/assets/services/media.png",
+        title: "Development",
+        description: "Custom programming for most complex functions you can think.",
         colSpan: "md:col-span-2",
     },
     {
-        title: "Website Design",
-        description: "Crafting high-performance websites that drive conversions and elevate your brand.",
-        image: "/assets/services/",
+        title: "Web Design",
+        description: "Go online and acquire online customers with your business website. An appealing website can get you more customers.",
         colSpan: "md:col-span-2",
     },
     {
-        title: "Social Media Marketing",
-        description: "Maximize the potential of your social platforms by converting engagement into loyal customers.",
-        image: "/assets/services/social.png",
-        colSpan: "md:col-span-3",
+        title: "SEO Optimization",
+        description: "Optimizing your website to rank on the first page of google is our specialty.",
+        colSpan: "md:col-span-2",
     },
     {
-        title: "Brand Strategy",
-        description: "From brand identity to market positioning, we guide every step to ensure your brand resonates and stands out.",
-        image: "/assets/services/brand.png",
-        colSpan: "md:col-span-3",
+        title: "Ecommerce",
+        description: "We build your online store using a flexible, modular platform that allows you to sell your products online.",
+        colSpan: "md:col-span-2",
+    },
+    {
+        title: "Branding",
+        description: "A solid brand strategy, logo and guidelines help you to get You recognized.",
+        colSpan: "md:col-span-2",
     },
 ];
 
@@ -76,7 +76,7 @@ export default function Services() {
                     We have <span className="italic font-serif text-muted-foreground">build </span><br /><span className="italic font-serif text-muted-foreground">more </span> projects.
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                    Data driven strategies designed to attract, convert, and retain your ideal customers.
+                    Hire us for all your online marketing needs.
                 </p>
             </div>
 
@@ -106,7 +106,7 @@ export default function Services() {
                             />
 
                             {/* Inner Card */}
-                            <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[radial-gradient(circle_280px_at_0%_0%,#444444,#0c0d0d)] overflow-hidden flex flex-col">
+                            <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[#0c0d0d] overflow-hidden flex flex-col">
                                 {/* Ray */}
                                 <div className="absolute top-0 left-0 w-[220px] h-[45px] bg-[#c7c7c7] opacity-40 blur-[10px] rounded-[100px] rotate-[40deg] origin-[10%_0%] shadow-[0_0_50px_#fff]" />
 
@@ -118,10 +118,10 @@ export default function Services() {
 
                                 {/* Content Container */}
                                 <div className="relative z-10 flex flex-col h-full items-center justify-center text-center p-8 min-h-[300px]">
-                                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-white via-white to-gray-500 bg-clip-text text-transparent">
+                                    <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white via-white to-gray-500 bg-clip-text text-transparent">
                                         {service.title}
                                     </h3>
-                                    <p className="text-gray-400 text-base leading-relaxed max-w-sm">
+                                    <p className="text-gray-400 text-[14px] leading-relaxed max-w-sm">
                                         {service.description}
                                     </p>
                                 </div>

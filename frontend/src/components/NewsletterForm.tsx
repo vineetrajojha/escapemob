@@ -32,7 +32,7 @@ export default function NewsletterForm() {
                 name="email"
                 required
                 placeholder="Enter your email"
-                className="w-full bg-blue-500/10 border border-blue-500/20 rounded-full py-3 pl-6 pr-12 text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 disabled:opacity-50"
+                className="w-full bg-white/5 border border-blue-500/20 rounded-full py-3 pl-6 pr-12 text-foreground placeholder-muted-foreground focus:outline-none focus:border-blue-500 disabled:opacity-50"
                 disabled={isLoading}
             />
             <button

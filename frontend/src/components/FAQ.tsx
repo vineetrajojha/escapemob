@@ -29,6 +29,26 @@ const faqs = [
         answer:
             "Our pricing is customized based on the scope of work and your specific needs. We offer project-based pricing as well as monthly retainer models. Contact us for a free consultation and a detailed quote.",
     },
+    {
+        question: "Do you offer custom software or app development?",
+        answer:
+            "Yes! Our development team specializes in building custom web applications, mobile apps, and robust backend software architectures tailored to your unique operational requirements.",
+    },
+    {
+        question: "Will I own the website and its content after it's built?",
+        answer:
+            "Absolutely. Once the project is completed and fully paid for, you retain 100% ownership of your website, its design, the source code, and all associated content.",
+    },
+    {
+        question: "Can you redesign my existing website?",
+        answer:
+            "Definitely. We frequently help businesses re-platform or completely redesign their existing sites to improve UI/UX, boost loading speeds, and increase conversion rates.",
+    },
+    {
+        question: "What platforms do you use for eCommerce development?",
+        answer:
+            "We build highly scalable online stores using modern frameworks like Next.js for custom experiences, or robust platforms like Shopify and WooCommerce depending on what best suits your business model.",
+    },
 ];
 
 const FAQ = () => {
@@ -44,11 +64,11 @@ const FAQ = () => {
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
                         Frequently Asked{" "}
-                        <span className="italic font-serif text-muted-foreground">
+                        <span className="italic font-serif text-gray-400">
                             Questions
                         </span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                         Got questions? We've got answers. Here are some of the most common
                         inquiries we receive.
                     </p>
@@ -58,20 +78,37 @@ const FAQ = () => {
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
-                            className="border border-border rounded-2xl overflow-hidden bg-card transition-all duration-300 hover:border-primary/50"
+                            className={`relative rounded-[14px] overflow-hidden transition-all duration-500 border ${
+                                activeIndex === index 
+                                ? "border-blue-500/50 bg-[#0a2353] shadow-[0_0_30px_rgba(59,130,246,0.1)]" 
+                                : "border-[#202222] bg-[#0c0d0d] hover:bg-[#111]"
+                            }`}
                         >
+                            {/* Active State Background Glow */}
+                            <AnimatePresence>
+                                {activeIndex === index && (
+                                    <motion.div 
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent pointer-events-none" 
+                                    />
+                                )}
+                            </AnimatePresence>
+
                             <button
                                 onClick={() => toggleAccordion(index)}
-                                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                                className="relative z-10 w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                             >
-                                <span className="text-lg md:text-xl font-semibold text-foreground pr-8">
+                                <span className={`text-[17px] md:text-xl font-bold pr-8 transition-colors duration-300 ${activeIndex === index ? "text-white" : "text-gray-300"}`}>
                                     {faq.question}
                                 </span>
                                 <div
-                                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${activeIndex === index
-                                            ? "bg-primary text-primary-foreground"
-                                            : "bg-muted text-muted-foreground"
-                                        }`}
+                                    className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 border ${
+                                        activeIndex === index
+                                            ? "bg-blue-500/20 text-blue-400 border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+                                            : "bg-white/5 text-gray-400 border-[#202222]"
+                                    }`}
                                 >
                                     {activeIndex === index ? (
                                         <Minus className="w-5 h-5" />
@@ -87,8 +124,9 @@ const FAQ = () => {
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="relative z-10"
                                     >
-                                        <div className="px-6 pb-6 text-muted-foreground leading-relaxed">
+                                        <div className="px-6 md:px-8 pb-8 text-gray-400 leading-relaxed text-[15px] max-w-3xl">
                                             {faq.answer}
                                         </div>
                                     </motion.div>

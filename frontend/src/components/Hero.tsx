@@ -55,9 +55,6 @@ export default function Hero() {
             className="relative min-h-screen flex flex-col justify-center pt-32 pb-24 lg:pt-20 lg:pb-40 overflow-hidden"
         >
             <div className="grid lg:grid-cols-2 items-center gap-8 lg:gap-12 px-4 max-w-7xl mx-auto w-full z-10">
-                {/* Background Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10" />
-
                 {/* Left Content */}
                 <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                     <span
@@ -86,7 +83,7 @@ export default function Hero() {
 
                 {/* Right Content (Video Card) */}
                 <div className="relative w-full flex justify-center lg:justify-end">
-                    <div className="relative w-full max-w-2xl rounded-[20px] overflow-hidden border border-white/10 bg-black/20 backdrop-blur-sm shadow-2xl">
+                    <div className="relative w-full max-w-2xl rounded-[20px] overflow-hidden border border-white/10 bg-white/10 backdrop-blur-sm shadow-2xl">
                         <video
                             src="/hero-video.mov"
                             autoPlay
@@ -100,7 +97,7 @@ export default function Hero() {
             </div>
 
             {/* Logo Ticker */}
-            <div className="relative lg:absolute bottom-0 left-0 w-full py-8 lg:py-12 bg-background/30 backdrop-blur-md z-20 mt-12 lg:mt-0 border-t border-white/5">
+            <div className="relative lg:absolute bottom-0 left-0 w-full py-8 lg:py-12 z-20 mt-12 lg:mt-0">
                 <p className="text-center text-xl md:text-2xl font-serif italic text-muted-foreground/80 mb-8 lg:mb-12 tracking-wide">
                     Growth Partner
                 </p>

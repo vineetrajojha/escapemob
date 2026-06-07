@@ -100,7 +100,7 @@ const Contact = () => {
                                 />
 
                                 {/* Inner Card */}
-                                <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[radial-gradient(circle_280px_at_0%_0%,#444444,#0c0d0d)] overflow-hidden flex flex-col p-8 md:p-10">
+                                <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[#0c0d0d] overflow-hidden flex flex-col p-8 md:p-10">
                                     {/* Ray */}
                                     <div className="absolute top-0 left-0 w-[220px] h-[45px] bg-[#c7c7c7] opacity-40 blur-[10px] rounded-[100px] rotate-[40deg] origin-[10%_0%] shadow-[0_0_50px_#fff] pointer-events-none" />
 
@@ -127,7 +127,7 @@ const Contact = () => {
                                                         name="name"
                                                         required
                                                         placeholder="John Doe"
-                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-gray-500 disabled:opacity-50"
+                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
                                                         disabled={isLoading}
                                                     />
                                                 </div>
@@ -144,7 +144,7 @@ const Contact = () => {
                                                         name="email"
                                                         required
                                                         placeholder="john@example.com"
-                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-gray-500 disabled:opacity-50"
+                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
                                                         disabled={isLoading}
                                                     />
                                                 </div>
@@ -162,7 +162,7 @@ const Contact = () => {
                                                     id="company"
                                                     name="company"
                                                     placeholder="Your Company Ltd."
-                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-gray-500 disabled:opacity-50"
+                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
                                                     disabled={isLoading}
                                                 />
                                             </div>
@@ -180,7 +180,7 @@ const Contact = () => {
                                                     required
                                                     rows={4}
                                                     placeholder="Tell us about your project..."
-                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-gray-500 resize-none disabled:opacity-50"
+                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 resize-none disabled:opacity-50"
                                                     disabled={isLoading}
                                                 />
                                             </div>
