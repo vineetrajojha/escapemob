@@ -59,7 +59,7 @@ const FAQ = () => {
     };
 
     return (
-        <section className="py-20 bg-background relative z-10">
+        <section className="py-20 bg-transparent relative z-10">
             <div className="container mx-auto px-4 max-w-4xl">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">

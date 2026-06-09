@@ -1,34 +1,41 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const projects = [
     {
-        title: "E-Commerce Re-platforming",
-        category: "Web Development",
-        image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        link: "#"
+        id: 1,
+        title: "Trap Fashion",
+        description: "Premium trap-inspired streetwear brand. A complete e-commerce solution with dynamic interactions.",
+        asset: "/assets/projects/trapfashion.mov",
+        type: "video" as const,
+        link: "https://trapforyou.com",
     },
     {
-        title: "FinTech Mobile App",
-        category: "App Development",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        link: "#"
+        id: 2,
+        title: "SKB Realtech",
+        description: "Comprehensive real estate platform for property search, legal guidance, and housing solutions in Greater Noida.",
+        asset: "/assets/projects/skbrealtech.mov",
+        type: "video" as const,
+        link: "https://skbrealtech.in",
     },
     {
-        title: "Healthcare Portal",
-        category: "UI/UX Design",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        link: "#"
+        id: 3,
+        title: "Navaana Store",
+        description: "Youth-driven clothing brand specializing in streetwear, custom merchandise, and limited drops.",
+        asset: "/assets/projects/navaanastore.mov",
+        type: "video" as const,
+        link: "https://navaanastore.com",
     },
     {
-        title: "Real Estate SaaS",
-        category: "Custom Software",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        link: "#"
+        id: 4,
+        title: "Vijay Real Estate",
+        description: "Real Estate website built for performance and high conversion rates.",
+        asset: "/assets/projects/8.png",
+        type: "image" as const,
+        link: "https://vijayrealestate.co.in",
     }
 ];
 
@@ -44,53 +51,49 @@ export default function ProjectShowcase() {
                     className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
                 >
                     <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Featured <span className="italic font-serif text-gray-400">Projects</span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                            Featured <span className="italic font-serif text-muted-foreground">Projects</span>
                         </h2>
-                        <p className="text-gray-400 text-lg">
+                        <p className="text-muted-foreground text-lg">
                             Take a look at some of our recent digital transformations and custom solutions built for businesses worldwide.
                         </p>
                     </div>
-                    <Link href="/projects" className="inline-flex items-center gap-2 text-white bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    <Link href="/projects" className="inline-flex items-center gap-2 text-foreground bg-foreground/5 border border-border px-6 py-3 rounded-full hover:bg-foreground/10 transition-colors">
                         View All Projects <ArrowUpRight className="w-4 h-4" />
                     </Link>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0c0d0d] aspect-[4/3] flex flex-col justify-end"
-                        >
-                            {/* Project Image */}
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                            />
-                            
-                            {/* Dark Gradient Overlay for text readability */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="relative w-full overflow-hidden mt-12">
+                    {/* Gradient Masks for smooth fade effect at edges */}
+                    <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
-                            <div className="relative z-10 p-8 transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                                <span className="text-blue-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
-                                    {project.category}
-                                </span>
-                                <div className="flex justify-between items-center">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
-                                    <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform scale-50 group-hover:scale-100">
-                                        <ArrowUpRight className="w-5 h-5" />
+                    <div className="flex animate-scroll hover:[animation-play-state:paused] w-max gap-6 pb-12 pt-4 px-4">
+                        {[...projects, ...projects, ...projects].map((project, index) => (
+                            <div
+                                key={`${project.id}-${index}`}
+                                className="relative w-[320px] md:w-[420px] flex-shrink-0 group"
+                            >
+                                <Link href={project.link} target="_blank" className="block relative aspect-video w-full overflow-hidden rounded-2xl bg-card border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                    {project.type === "video" ? (
+                                        <video src={project.asset} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    ) : (
+                                        <img src={project.asset} alt={project.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    )}
+                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                                    
+                                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                                        <ArrowUpRight className="w-5 h-5 text-primary" />
                                     </div>
+                                </Link>
+                                
+                                <div className="mt-5 px-1">
+                                    <h3 className="text-[19px] font-bold text-foreground mb-1">{project.title}</h3>
+                                    <p className="text-[15px] text-muted-foreground line-clamp-2 leading-relaxed">{project.description}</p>
                                 </div>
                             </div>
-                            <Link href={project.link} className="absolute inset-0 z-20"><span className="sr-only">View {project.title}</span></Link>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -92,7 +92,7 @@ const Testimonials = () => {
                                                 ))}
                                             </div>
                                             <blockquote className="text-[15px] md:text-lg mb-8 leading-relaxed text-gray-300 font-light">
-                                                "{review.quote}"
+                                                {review.quote}
                                             </blockquote>
                                         </div>
                                         <div className="relative z-10 flex items-center mt-auto border-t border-[#202222] pt-6">

@@ -55,13 +55,13 @@ export default function SEOBlock() {
     };
 
     return (
-        <section className="py-20 bg-[#0c0d0d] relative z-10 border-t border-white/5">
+        <section className="py-20 bg-transparent relative z-10 border-t border-border">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                        Service <span className="italic font-serif text-gray-400">Locations</span>
+                    <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+                        Service <span className="italic font-serif text-muted-foreground">Locations</span>
                     </h2>
-                    <p className="text-gray-400 max-w-3xl mx-auto text-sm">
+                    <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
                         EscapeMob provides premium digital services across major cities in India. Find specialized services in your area below.
                     </p>
                 </div>
@@ -71,7 +71,7 @@ export default function SEOBlock() {
                         <div
                             key={index}
                             className={`border rounded-xl transition-all duration-300 ${
-                                activeIndex === index ? "border-white/20 bg-[#080808]" : "border-white/5 bg-[#0c0d0d]"
+                                activeIndex === index ? "border-border bg-muted/50" : "border-border bg-background"
                             }`}
                         >
                             <button
@@ -79,12 +79,12 @@ export default function SEOBlock() {
                                 className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none group"
                             >
                                 <span className={`text-[15px] md:text-lg font-semibold pr-8 transition-colors ${
-                                    activeIndex === index ? "text-white" : "text-gray-400 group-hover:text-white"
+                                    activeIndex === index ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"
                                 }`}>
                                     {section.category}
                                 </span>
                                 <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-colors ${
-                                    activeIndex === index ? "bg-white/10 border-white/20 text-white" : "bg-transparent border-white/5 text-gray-400"
+                                    activeIndex === index ? "bg-muted border-border text-foreground" : "bg-transparent border-border text-muted-foreground"
                                 }`}>
                                     {activeIndex === index ? <Minus size={16} /> : <Plus size={16} />}
                                 </div>
@@ -99,15 +99,15 @@ export default function SEOBlock() {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="p-6 pt-0 border-t border-white/5 mt-4">
+                                        <div className="p-6 pt-0 border-t border-border mt-4">
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
                                                 {locations.map((city, cityIdx) => (
                                                     <div key={cityIdx} className="space-y-2">
-                                                        <h4 className="text-gray-400 text-sm font-bold border-b border-white/5 pb-2 mb-3">{city}</h4>
+                                                        <h4 className="text-muted-foreground text-sm font-bold border-b border-border pb-2 mb-3">{city}</h4>
                                                         <ul className="space-y-1">
                                                             {section.baseKeywords.slice(0, 6).map((keyword, kwIdx) => (
                                                                 <li key={kwIdx}>
-                                                                    <Link href="#" className="text-gray-400 hover:text-white text-[12px] transition-colors leading-tight block">
+                                                                    <Link href="#" className="text-muted-foreground hover:text-foreground text-[12px] transition-colors leading-tight block">
                                                                         {keyword} in {city}
                                                                     </Link>
                                                                 </li>

@@ -135,23 +135,23 @@ const getIconForIndustry = (title: string) => {
     return Briefcase;
 };
 
-const MenuItem = ({ title, description, icon: Icon, onClick }: any) => (
-    <Link href="#" onClick={onClick} className="group/item flex items-start gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-100/80 transition-colors">
+const MenuItem = ({ title, description, icon: Icon, href = "/#services", onClick }: any) => (
+    <Link href={href} onClick={onClick} className="group/item flex items-start gap-4 p-3 -mx-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-white/5 transition-colors">
         <div className="flex-shrink-0 w-11 h-11 relative rounded-[10px] p-[1px] bg-[#0c0d0d] shadow-sm">
-            <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[#0c0d0d] overflow-hidden flex items-center justify-center text-gray-400 group-hover/item:text-white transition-colors duration-300">
+            <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] overflow-hidden flex items-center justify-center text-gray-400 group-hover/item:text-white transition-colors duration-300">
                 <div className="absolute top-0 left-0 w-[20px] h-[5px] bg-[#c7c7c7] opacity-40 blur-[3px] rounded-[100px] rotate-[40deg] origin-[10%_0%] shadow-[0_0_10px_#fff]" />
                 <Icon size={20} strokeWidth={1.5} className="relative z-10 transition-transform duration-300 group-hover/item:scale-110" />
             </div>
         </div>
         <div className="flex flex-col pt-0.5">
-            <span className="text-[14px] font-semibold text-slate-900 leading-tight group-hover/item:text-blue-600 transition-colors">{title}</span>
-            {description && <span className="text-[13px] text-slate-500 mt-1 leading-snug">{description}</span>}
+            <span className="text-[14px] font-semibold text-slate-900 dark:text-gray-100 leading-tight group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors">{title}</span>
+            {description && <span className="text-[13px] text-slate-500 dark:text-gray-400 mt-1 leading-snug">{description}</span>}
         </div>
     </Link>
 );
 
 const BottomBar = ({ text, highlightText }: { text: string, highlightText: string }) => (
-    <div className="bg-white border-t border-slate-100 p-5 px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div className="bg-white dark:bg-[#121314] border-t border-slate-100 dark:border-white/10 p-5 px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
             <div className="w-10 h-10 relative rounded-[10px] p-[1px] bg-[#0c0d0d] shadow-sm flex-shrink-0">
                 <div className="relative w-full h-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] flex items-center justify-center text-white overflow-hidden">
@@ -159,11 +159,11 @@ const BottomBar = ({ text, highlightText }: { text: string, highlightText: strin
                     <Star size={18} className="relative z-10 text-gray-200 fill-white" />
                 </div>
             </div>
-            <span className="text-[15px] font-medium text-slate-900">
-                {text} <span className="text-slate-500 font-normal">{highlightText}</span>
+            <span className="text-[15px] font-medium text-slate-900 dark:text-gray-100">
+                {text} <span className="text-slate-500 dark:text-gray-400 font-normal">{highlightText}</span>
             </span>
         </div>
-        <Link href="#contact" className="w-full sm:w-auto">
+        <Link href="/#contact" className="w-full sm:w-auto">
             <Button variant="primary" className="!py-2.5 !px-6 text-[14px] w-full justify-center">
                 Get Started
             </Button>
@@ -226,52 +226,55 @@ export default function Navbar() {
 
             {/* Main Navbar */}
             <div className="w-full flex justify-center pt-4 px-4">
-                <nav className={`transition-all duration-300 rounded-full px-4 py-2 flex items-center justify-between w-full max-w-[1400px] shadow-sm border ${scrolled ? "bg-white/80 backdrop-blur-md border-slate-200" : "bg-white/50 backdrop-blur-sm border-transparent"}`}>
+                <nav className={`relative transition-all duration-300 rounded-full px-4 py-2 flex items-center justify-between w-full max-w-[1400px] shadow-sm border ${scrolled ? "bg-white dark:bg-black/80 backdrop-blur-md border-slate-200 dark:border-white/10" : "bg-white/90 dark:bg-black/50 backdrop-blur-sm border-transparent"}`}>
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 pl-2" onClick={closeMobileMenu}>
-                    <Image
-                        src="/logo.png"
+                    <img
+                        src="/logo-light.png"
                         alt="EscapeMob"
-                        width={120}
-                        height={40}
-                        className="h-10 w-auto object-contain"
+                        className="h-14 md:h-16 w-auto object-contain dark:hidden"
+                    />
+                    <img
+                        src="/logo-dark.png"
+                        alt="EscapeMob"
+                        className="h-14 md:h-16 w-auto object-contain hidden dark:block"
                     />
                 </Link>
 
                 {/* Desktop Links */}
-                <div className="hidden xl:flex items-center gap-10 text-[15px] font-medium text-slate-600 static">
-                    <Link href="#home" className="hover:text-slate-900 transition-colors py-4">Home</Link>
-                    <Link href="#about" className="hover:text-slate-900 transition-colors py-4">About</Link>
+                <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[15px] font-medium text-slate-600 dark:text-gray-300 static">
+                    <Link href="/#home" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Home</Link>
+                    <Link href="/#about" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">About</Link>
                     
                     {/* Services Mega Menu */}
-                    <div className="group/services py-4 relative">
-                        <button className="flex items-center gap-1.5 hover:text-slate-900 transition-colors">
+                    <div className="group/services py-4 static">
+                        <button className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors">
                             Services <ChevronDown className="w-4 h-4 transition-transform group-hover/services:rotate-180" />
                         </button>
                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-[1200px] pt-4 opacity-0 invisible group-hover/services:opacity-100 group-hover/services:visible transition-all duration-300 ease-in-out z-50 cursor-default">
-                            <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+                            <div className="bg-white dark:bg-[#0c0d0d] border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
                                 <div className="flex flex-col lg:flex-row">
-                                    <div className="flex-[3] p-10 grid grid-cols-3 gap-x-12 gap-y-6 bg-white">
+                                    <div className="flex-[3] p-10 grid grid-cols-3 gap-x-12 gap-y-6 bg-white dark:bg-[#0c0d0d]">
                                         {servicesCategories.slice(0, 3).map((cat, idx) => (
                                             <div key={idx} className="flex flex-col">
                                                 <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-6">{cat.title}</h3>
                                                 <div className="flex flex-col space-y-2">
                                                     {cat.items.slice(0, 6).map((item, i) => (
-                                                        <MenuItem key={i} title={item} icon={getIconForService(item)} description={`Professional ${item.toLowerCase()} solutions.`} />
+                                                        <MenuItem key={i} title={item} href="/#services" icon={getIconForService(item)} description={`Professional ${item.toLowerCase()} solutions.`} />
                                                     ))}
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="flex-[1] p-10 bg-[#f8faff] border-l border-slate-100">
+                                    <div className="flex-[1] p-10 bg-[#f8faff] dark:bg-[#121314] border-l border-slate-100 dark:border-white/10">
                                         <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-6">Explore {servicesCategories[3].title}</h3>
                                         <div className="flex flex-col space-y-2">
                                             {servicesCategories[3].items.slice(0, 6).map((item, i) => (
-                                                <MenuItem key={i} title={item} icon={getIconForService(item)} description="Boost your business reach." />
+                                                <MenuItem key={i} title={item} href="/#services" icon={getIconForService(item)} description="Boost your business reach." />
                                             ))}
                                         </div>
-                                        <div className="mt-8 pt-6 border-t border-blue-100/60">
-                                            <Link href="#" className="text-[14px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1.5 group/link">
+                                        <div className="mt-8 pt-6 border-t border-blue-100/60 dark:border-white/10">
+                                            <Link href="/#services" className="text-[14px] font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 flex items-center gap-1.5 group/link">
                                                 See All Promotional Services <ArrowRight size={16} className="transition-transform group-hover/link:translate-x-1" />
                                             </Link>
                                         </div>
@@ -283,35 +286,35 @@ export default function Navbar() {
                     </div>
 
                     {/* Technologies Mega Menu */}
-                    <div className="group/tech py-4 relative">
-                        <button className="flex items-center gap-1.5 hover:text-slate-900 transition-colors">
+                    <div className="group/tech py-4 static">
+                        <button className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors">
                             Technologies <ChevronDown className="w-4 h-4 transition-transform group-hover/tech:rotate-180" />
                         </button>
                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-[90vw] max-w-[1200px] pt-4 opacity-0 invisible group-hover/tech:opacity-100 group-hover/tech:visible transition-all duration-300 ease-in-out z-50 cursor-default">
-                            <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+                            <div className="bg-white dark:bg-[#0c0d0d] border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
                                 <div className="flex flex-col lg:flex-row">
-                                    <div className="flex-[3] p-10 grid grid-cols-3 gap-x-12 gap-y-6 bg-white">
+                                    <div className="flex-[3] p-10 grid grid-cols-3 gap-x-12 gap-y-6 bg-white dark:bg-[#0c0d0d]">
                                         <div className="flex flex-col space-y-4">
                                             <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2">Development</h3>
                                             {technologiesCategories.slice(0, 4).map((cat, idx) => (
-                                                <MenuItem key={idx} title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
+                                                <MenuItem key={idx} href="/#technologies" title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
                                             ))}
                                         </div>
                                         <div className="flex flex-col space-y-4">
                                             <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2">Platforms</h3>
                                             {technologiesCategories.slice(4, 8).map((cat, idx) => (
-                                                <MenuItem key={idx} title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
+                                                <MenuItem key={idx} href="/#technologies" title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
                                             ))}
                                         </div>
                                         <div className="flex flex-col space-y-4">
                                             <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2">Creative & Media</h3>
                                             {technologiesCategories.slice(8, 12).map((cat, idx) => (
-                                                <MenuItem key={idx} title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
+                                                <MenuItem key={idx} href="/#technologies" title={cat.title} description={cat.items.slice(0, 3).join(", ") + (cat.items.length > 3 ? "..." : "")} icon={getIconForTech(cat.title)} />
                                             ))}
                                         </div>
                                     </div>
                                     
-                                    <div className="flex-[1] p-10 bg-[#f8faff] border-l border-slate-100">
+                                    <div className="flex-[1] p-10 bg-[#f8faff] dark:bg-[#121314] border-l border-slate-100 dark:border-white/10">
                                         <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-6">Explore Tech Stack</h3>
                                         <div className="flex flex-col space-y-4">
                                             <div className="relative group w-full p-[1px] rounded-[15px] bg-[#0c0d0d] shadow-xl overflow-hidden">
@@ -346,23 +349,23 @@ export default function Navbar() {
                     </div>
 
                     {/* Industries Dropdown */}
-                    <div className="group/industries py-4 relative">
-                        <button className="flex items-center gap-1.5 hover:text-slate-900 transition-colors">
+                    <div className="group/industries py-4 static">
+                        <button className="flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-white transition-colors">
                             Industries <ChevronDown className="w-4 h-4 transition-transform group-hover/industries:rotate-180" />
                         </button>
                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-[700px] pt-4 opacity-0 invisible group-hover/industries:opacity-100 group-hover/industries:visible transition-all duration-300 ease-in-out z-50 cursor-default">
-                            <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
-                                <div className="p-8 grid grid-cols-2 gap-x-12 gap-y-6 bg-white">
+                            <div className="bg-white dark:bg-[#0c0d0d] border border-slate-200 dark:border-white/10 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+                                <div className="p-8 grid grid-cols-2 gap-x-12 gap-y-6 bg-white dark:bg-[#0c0d0d]">
                                     <div className="flex flex-col space-y-2">
                                         <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4">Core Sectors</h3>
                                         {industriesItems.slice(0, 4).map((item, idx) => (
-                                            <MenuItem key={idx} title={item} description={`Specialized solutions for ${item.toLowerCase()}`} icon={getIconForIndustry(item)} />
+                                            <MenuItem key={idx} href="/#services" title={item} description={`Specialized solutions for ${item.toLowerCase()}`} icon={getIconForIndustry(item)} />
                                         ))}
                                     </div>
                                     <div className="flex flex-col space-y-2">
                                         <h3 className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-4">More Industries</h3>
                                         {industriesItems.slice(4, 7).map((item, idx) => (
-                                            <MenuItem key={idx} title={item} description={`Tailored for ${item.toLowerCase()}`} icon={getIconForIndustry(item)} />
+                                            <MenuItem key={idx} href="/#services" title={item} description={`Tailored for ${item.toLowerCase()}`} icon={getIconForIndustry(item)} />
                                         ))}
                                     </div>
                                 </div>
@@ -371,12 +374,13 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <Link href="#testimonials" className="hover:text-slate-900 transition-colors py-4">Testimonials</Link>
-                    <Link href="/projects" className="hover:text-slate-900 transition-colors py-4">Projects</Link>
+                    <Link href="/#testimonials" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Testimonials</Link>
+                    <Link href="/projects" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Projects</Link>
+                    <Link href="/career" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Career</Link>
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden xl:block">
+                <div className="hidden lg:block">
                     <Link href="#contact">
                         <Button variant="primary" className="!py-2.5 !px-5 text-sm">
                             Get a Quote
@@ -386,7 +390,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="xl:hidden text-slate-900 p-2 z-50 relative"
+                    className="lg:hidden text-slate-900 p-2 z-50 relative"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -403,20 +407,20 @@ export default function Navbar() {
                         animate="open"
                         exit="closed"
                         variants={menuVariants}
-                        className="fixed inset-0 bg-white z-40 flex flex-col pt-32 pb-8 px-6 xl:hidden overflow-y-auto"
+                        className="fixed inset-0 bg-white dark:bg-black z-40 flex flex-col pt-32 pb-8 px-6 lg:hidden overflow-y-auto"
                     >
                         <div className="flex flex-col gap-6 w-full max-w-md mx-auto pb-12">
                             <motion.div custom={0} variants={linkVariants}>
-                                <Link href="#home" className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors block" onClick={closeMobileMenu}>Home</Link>
+                                <Link href="/#home" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>Home</Link>
                             </motion.div>
                             <motion.div custom={1} variants={linkVariants}>
-                                <Link href="#about" className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors block" onClick={closeMobileMenu}>About</Link>
+                                <Link href="/#about" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>About</Link>
                             </motion.div>
                             
                             {/* Mobile Services Accordion */}
                             <motion.div custom={2} variants={linkVariants}>
                                 <button 
-                                    className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between w-full"
+                                    className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center justify-between w-full"
                                     onClick={() => toggleMobileSection('services')}
                                 >
                                     Services
@@ -430,14 +434,14 @@ export default function Navbar() {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden mt-6"
                                         >
-                                            <div className="pb-2 space-y-6 pl-4 border-l-2 border-slate-100">
+                                            <div className="pb-2 space-y-6 pl-4 border-l-2 border-slate-100 dark:border-white/10">
                                                 {servicesCategories.map((cat, idx) => (
                                                     <div key={idx}>
                                                         <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-3">{cat.title}</h4>
                                                         <ul className="space-y-4">
                                                             {cat.items.slice(0, 5).map((item, i) => (
                                                                 <li key={i}>
-                                                                    <Link href="#" className="text-slate-600 font-medium text-[15px] block hover:text-blue-600" onClick={closeMobileMenu}>{item}</Link>
+                                                                    <Link href="/#services" className="text-slate-600 dark:text-gray-300 font-medium text-[15px] block hover:text-blue-600 dark:hover:text-blue-400" onClick={closeMobileMenu}>{item}</Link>
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -452,7 +456,7 @@ export default function Navbar() {
                             {/* Mobile Technologies Accordion */}
                             <motion.div custom={3} variants={linkVariants}>
                                 <button 
-                                    className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between w-full"
+                                    className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center justify-between w-full"
                                     onClick={() => toggleMobileSection('technologies')}
                                 >
                                     Technologies
@@ -466,11 +470,11 @@ export default function Navbar() {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden mt-6"
                                         >
-                                            <div className="pb-2 space-y-6 pl-4 border-l-2 border-slate-100">
+                                            <div className="pb-2 space-y-6 pl-4 border-l-2 border-slate-100 dark:border-white/10">
                                                 {technologiesCategories.slice(0, 6).map((cat, idx) => (
                                                     <div key={idx}>
                                                         <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2">{cat.title}</h4>
-                                                        <p className="text-slate-600 text-[14px] leading-relaxed pr-4">{cat.items.join(", ")}</p>
+                                                        <p className="text-slate-600 dark:text-gray-300 text-[14px] leading-relaxed pr-4">{cat.items.join(", ")}</p>
                                                     </div>
                                                 ))}
                                             </div>
@@ -482,7 +486,7 @@ export default function Navbar() {
                             {/* Mobile Industries Accordion */}
                             <motion.div custom={4} variants={linkVariants}>
                                 <button 
-                                    className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors flex items-center justify-between w-full"
+                                    className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center justify-between w-full"
                                     onClick={() => toggleMobileSection('industries')}
                                 >
                                     Industries
@@ -496,9 +500,9 @@ export default function Navbar() {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden mt-6"
                                         >
-                                            <div className="pb-2 space-y-4 pl-4 border-l-2 border-slate-100">
+                                            <div className="pb-2 space-y-4 pl-4 border-l-2 border-slate-100 dark:border-white/10">
                                                 {industriesItems.map((item, idx) => (
-                                                    <Link key={idx} href="#" className="text-slate-600 font-medium text-[15px] block hover:text-blue-600" onClick={closeMobileMenu}>{item}</Link>
+                                                    <Link key={idx} href="/#services" className="text-slate-600 dark:text-gray-300 font-medium text-[15px] block hover:text-blue-600 dark:hover:text-blue-400" onClick={closeMobileMenu}>{item}</Link>
                                                 ))}
                                             </div>
                                         </motion.div>
@@ -507,11 +511,15 @@ export default function Navbar() {
                             </motion.div>
 
                             <motion.div custom={5} variants={linkVariants}>
-                                <Link href="#testimonials" className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors block" onClick={closeMobileMenu}>Testimonials</Link>
+                                <Link href="/#testimonials" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>Testimonials</Link>
                             </motion.div>
 
                             <motion.div custom={6} variants={linkVariants}>
-                                <Link href="/projects" className="text-2xl font-semibold text-slate-900 hover:text-blue-600 transition-colors block" onClick={closeMobileMenu}>Projects</Link>
+                                <Link href="/projects" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>Projects</Link>
+                            </motion.div>
+
+                            <motion.div custom={7} variants={linkVariants}>
+                                <Link href="/career" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>Career</Link>
                             </motion.div>
 
                             <motion.div custom={7} variants={linkVariants} className="mt-8">

@@ -10,6 +10,7 @@ import { Loader2 } from "lucide-react";
 const Contact = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+    const [serviceType, setServiceType] = useState("");
 
     async function handleSubmit(formData: FormData) {
         setIsLoading(true);
@@ -28,7 +29,7 @@ const Contact = () => {
     }
 
     return (
-        <section className="py-20 md:py-32 bg-background relative z-10 overflow-hidden">
+        <section className="py-20 md:py-32 bg-transparent relative z-10 overflow-hidden">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                     {/* Left Content */}
@@ -115,57 +116,52 @@ const Contact = () => {
                                         <form id="contact-form" action={handleSubmit} className="space-y-6">
                                             <div className="grid md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
-                                                    <label
-                                                        htmlFor="name"
-                                                        className="text-sm font-medium text-gray-300"
-                                                    >
-                                                        Name
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        id="name"
-                                                        name="name"
-                                                        required
-                                                        placeholder="John Doe"
-                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
-                                                        disabled={isLoading}
-                                                    />
+                                                    <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
+                                                    <input type="text" id="name" name="name" required placeholder="John Doe" className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50" disabled={isLoading} />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <label
-                                                        htmlFor="email"
-                                                        className="text-sm font-medium text-gray-300"
-                                                    >
-                                                        Email
-                                                    </label>
-                                                    <input
-                                                        type="email"
-                                                        id="email"
-                                                        name="email"
-                                                        required
-                                                        placeholder="john@example.com"
-                                                        className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
-                                                        disabled={isLoading}
-                                                    />
+                                                    <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
+                                                    <input type="email" id="email" name="email" required placeholder="john@example.com" className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50" disabled={isLoading} />
+                                                </div>
+                                            </div>
+
+                                            <div className="grid md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label htmlFor="phone" className="text-sm font-medium text-gray-300">Phone</label>
+                                                    <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 890" className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50" disabled={isLoading} />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label htmlFor="company" className="text-sm font-medium text-gray-300">Company (Optional)</label>
+                                                    <input type="text" id="company" name="company" placeholder="Your Company Ltd." className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50" disabled={isLoading} />
                                                 </div>
                                             </div>
 
                                             <div className="space-y-2">
-                                                <label
-                                                    htmlFor="company"
-                                                    className="text-sm font-medium text-gray-300"
-                                                >
-                                                    Company (Optional)
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    id="company"
-                                                    name="company"
-                                                    placeholder="Your Company Ltd."
-                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50"
+                                                <label htmlFor="service" className="text-sm font-medium text-gray-300">Service Needed</label>
+                                                <select 
+                                                    id="service" 
+                                                    name="service" 
+                                                    required 
+                                                    value={serviceType}
+                                                    onChange={(e) => setServiceType(e.target.value)}
+                                                    className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white disabled:opacity-50 appearance-none"
                                                     disabled={isLoading}
-                                                />
+                                                >
+                                                    <option value="" disabled className="text-gray-500">Select a service</option>
+                                                    <option value="Web Development">Web Development</option>
+                                                    <option value="App Development">App Development</option>
+                                                    <option value="Digital Marketing">Digital Marketing</option>
+                                                    <option value="UI/UX Design">UI/UX Design</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
                                             </div>
+
+                                            {serviceType === 'Other' && (
+                                                <div className="space-y-2">
+                                                    <label htmlFor="otherService" className="text-sm font-medium text-gray-300">Please Specify</label>
+                                                    <input type="text" id="otherService" name="otherService" required placeholder="Describe what you need..." className="w-full px-4 py-3 rounded-lg bg-[#1c1c1c] border border-[#333] focus:border-white focus:ring-1 focus:ring-white outline-none transition-all text-white placeholder:text-[#EBEBEB]/60 disabled:opacity-50" disabled={isLoading} />
+                                                </div>
+                                            )}
 
                                             <div className="space-y-2">
                                                 <label

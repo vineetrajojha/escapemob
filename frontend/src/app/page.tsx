@@ -55,11 +55,11 @@ export default function Home() {
         <section id="about">
           <About />
         </section>
-        <section id="strategy">
-          <Strategy />
-        </section>
         <section id="services">
           <Services />
+        </section>
+        <section id="strategy">
+          <Strategy />
         </section>
         <section id="technologies">
           <Technologies />
