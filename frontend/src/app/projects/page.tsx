@@ -69,16 +69,16 @@ export default function Projects() {
                 <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto">
                     {/* Header / Tech Head Section */}
                     <div className="text-center mb-20">
-                        <h1 className="text-5xl md:text-7xl font-bold mb-8">
-                            Our <span className="italic font-serif text-muted-foreground">Projects</span>
+                        <h1 className="text-5xl md:text-7xl font-bold mb-8 text-slate-900 dark:text-white">
+                            Our <span className="italic font-serif text-slate-500 dark:text-muted-foreground">Projects</span>
                         </h1>
                         <div className="flex flex-col items-center justify-center">
                             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6 shadow-lg border-4 border-background overflow-hidden relative">
                                 <img src="/assets/vineet-raj.png" alt="Vineet Raj" className="w-full h-full object-cover" />
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-2">Vineet Raj</h2>
-                            <p className="text-muted-foreground uppercase tracking-widest text-lg md:text-xl font-semibold">Tech Head</p>
-                            <p className="text-muted-foreground max-w-3xl mt-8 text-xl md:text-2xl leading-relaxed">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-slate-900 dark:text-white">Vineet Raj</h2>
+                            <p className="text-slate-500 dark:text-muted-foreground uppercase tracking-widest text-lg md:text-xl font-semibold">Tech Head</p>
+                            <p className="text-slate-600 dark:text-muted-foreground max-w-3xl mt-8 text-xl md:text-2xl leading-relaxed">
                                 Leading the technological vision and execution at EscapeMob. Delivering high-impact digital solutions for modern businesses.
                             </p>
                         </div>
@@ -95,8 +95,8 @@ export default function Projects() {
                                 className="block w-full h-full"
                             >
                                 <TiltCard className="group relative w-full h-full min-h-[400px]">
-                                    <div className="relative h-full w-full rounded-[10px] p-[1px] bg-[radial-gradient(circle_at_0%_0%,#ffffff,#0c0d0d)]">
-                                        <div className="relative h-full w-full rounded-[9px] border border-[#202222] bg-[#0c0d0d] bg-[radial-gradient(circle_280px_at_50%_0%,#2a2a2a,#0c0d0d)] overflow-hidden flex flex-col p-6">
+                                    <div className="relative h-full w-full rounded-[10px] p-[1px] bg-slate-200 dark:bg-[radial-gradient(circle_at_0%_0%,#ffffff,#0c0d0d)]">
+                                        <div className="relative h-full w-full rounded-[9px] border border-slate-100 dark:border-[#202222] bg-white dark:bg-[#0c0d0d] dark:bg-[radial-gradient(circle_280px_at_50%_0%,#2a2a2a,#0c0d0d)] overflow-hidden flex flex-col p-6 transition-colors duration-300">
                                             <div className="w-full h-56 bg-gray-800/50 rounded-lg mb-6 overflow-hidden relative">
                                                 {project.type === "video" ? (
                                                     <video
@@ -121,14 +121,14 @@ export default function Projects() {
                                                 </div>
                                             </div>
 
-                                            <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                                            <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 transition-colors duration-300">{project.title}</h3>
+                                            <p className="text-slate-600 dark:text-gray-400 text-sm mb-4 line-clamp-3 transition-colors duration-300">
                                                 {project.description}
                                             </p>
 
                                             <div className="mt-auto flex flex-wrap gap-2">
                                                 {project.tech.map((tech, idx) => (
-                                                    <span key={idx} className="text-xs border border-gray-700 rounded-full px-2 py-1 text-gray-400">
+                                                    <span key={idx} className="text-xs border border-slate-200 dark:border-gray-700 rounded-full px-2 py-1 text-slate-500 dark:text-gray-400 transition-colors duration-300">
                                                         {tech}
                                                     </span>
                                                 ))}

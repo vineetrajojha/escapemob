@@ -90,6 +90,7 @@ export default function Hero() {
                             loop
                             muted
                             playsInline
+                            preload="auto"
                             className="w-full h-full object-contain"
                         />
                     </div>
@@ -101,30 +102,32 @@ export default function Hero() {
                 <p className="text-center text-xl md:text-2xl font-serif italic text-muted-foreground/80 mb-8 lg:mb-12 tracking-wide">
                     Growth Partner
                 </p>
-                <div className="overflow-hidden w-full">
-                    <div className="flex w-[200%] animate-scroll">
-                        <div className="flex w-1/2 justify-around items-center gap-8 lg:gap-12 px-8">
+                <div className="overflow-hidden w-full relative">
+                    <div className="flex w-max animate-scroll">
+                        <div className="flex items-center gap-12 md:gap-20 px-6 md:px-10">
                             {partnerLogos.map((logo, i) => (
-                                <div key={i} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
+                                <div key={i} className="flex-shrink-0 w-28 sm:w-36 md:w-44 lg:w-52 flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
                                     <Image
                                         src={logo}
                                         alt={`Partner ${i + 1}`}
-                                        width={200}
-                                        height={80}
-                                        className="object-contain h-16 md:h-20 lg:h-24 w-auto"
+                                        width={400}
+                                        height={160}
+                                        className="object-contain h-16 sm:h-20 md:h-24 lg:h-28 w-full"
+                                        priority
                                     />
                                 </div>
                             ))}
                         </div>
-                        <div className="flex w-1/2 justify-around items-center gap-8 lg:gap-12 px-8">
+                        <div className="flex items-center gap-12 md:gap-20 px-6 md:px-10">
                             {partnerLogos.map((logo, i) => (
-                                <div key={`dup-${i}`} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
+                                <div key={`dup-${i}`} className="flex-shrink-0 w-28 sm:w-36 md:w-44 lg:w-52 flex items-center justify-center opacity-60 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 transform hover:scale-110">
                                     <Image
                                         src={logo}
                                         alt={`Partner ${i + 1}`}
-                                        width={200}
-                                        height={80}
-                                        className="object-contain h-16 md:h-20 lg:h-24 w-auto"
+                                        width={400}
+                                        height={160}
+                                        className="object-contain h-16 sm:h-20 md:h-24 lg:h-28 w-full"
+                                        priority
                                     />
                                 </div>
                             ))}

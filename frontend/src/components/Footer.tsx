@@ -48,7 +48,7 @@ export default function Footer() {
                             <img
                                 src="/logo-dark.png"
                                 alt="EscapeMob"
-                                className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] hidden dark:block"
+                                className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] hidden dark:block scale-[1.4] origin-left"
                             />
                         </Link>
                     </div>
@@ -153,12 +153,14 @@ export default function Footer() {
                 <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 lg:col-span-3">
                     <h3 className="font-semibold text-foreground mb-6 tracking-wide uppercase text-[12px]">Jump To</h3>
                     <ul className="space-y-3 text-muted-foreground text-[13px] mb-10">
-                        <li><Link href="#home" className="hover:text-foreground transition-colors block">Home</Link></li>
-                        <li><Link href="#about" className="hover:text-foreground transition-colors block">About</Link></li>
-                        <li><Link href="#services" className="hover:text-foreground transition-colors block">Services</Link></li>
-                        <li><Link href="#testimonials" className="hover:text-foreground transition-colors block">Stories</Link></li>
-                        <li><Link href="#faqs" className="hover:text-foreground transition-colors block">FAQs</Link></li>
-                        <li><Link href="#contact" className="hover:text-foreground transition-colors text-foreground block">Get a Quote</Link></li>
+                        <li><Link href="/#home" className="hover:text-foreground transition-colors block">Home</Link></li>
+                        <li><Link href="/about" className="hover:text-foreground transition-colors block">About</Link></li>
+                        <li><Link href="/career" className="hover:text-foreground transition-colors block">Career</Link></li>
+                        <li><Link href="/projects" className="hover:text-foreground transition-colors block">Projects</Link></li>
+                        <li><Link href="/#services" className="hover:text-foreground transition-colors block">Services</Link></li>
+                        <li><Link href="/#testimonials" className="hover:text-foreground transition-colors block">Stories</Link></li>
+                        <li><Link href="/#faqs" className="hover:text-foreground transition-colors block">FAQs</Link></li>
+                        <li><Link href="/#contact" className="hover:text-foreground transition-colors text-foreground block">Get a Quote</Link></li>
                     </ul>
                 </motion.div>
             </motion.div>

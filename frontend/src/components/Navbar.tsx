@@ -237,14 +237,14 @@ export default function Navbar() {
                     <img
                         src="/logo-dark.png"
                         alt="EscapeMob"
-                        className="h-10 md:h-[42px] w-auto object-contain hidden dark:block"
+                        className="h-12 md:h-[50px] w-auto object-contain hidden dark:block scale-[1.4] origin-left"
                     />
                 </Link>
 
                 {/* Desktop Links */}
                 <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[15px] font-medium text-slate-600 dark:text-gray-300 static flex-1 justify-center">
                     <Link href="/#home" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Home</Link>
-                    <Link href="/#about" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">About</Link>
+                    <Link href="/about" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">About</Link>
                     
                     {/* Services Mega Menu */}
                     <div className="group/services py-4 static">
@@ -391,7 +391,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="lg:hidden text-slate-900 p-2 z-50 relative"
+                    className="lg:hidden text-slate-900 dark:text-white p-2 z-50 relative"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -415,7 +415,7 @@ export default function Navbar() {
                                 <Link href="/#home" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>Home</Link>
                             </motion.div>
                             <motion.div custom={1} variants={linkVariants}>
-                                <Link href="/#about" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>About</Link>
+                                <Link href="/about" className="text-2xl font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors block" onClick={closeMobileMenu}>About</Link>
                             </motion.div>
                             
                             {/* Mobile Services Accordion */}

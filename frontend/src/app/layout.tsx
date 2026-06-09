@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import CustomCursor from "@/components/CustomCursor";
+import ScheduleMeet from "@/components/ScheduleMeet";
 
 import Preloader from "@/components/Preloader";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,11 +32,13 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Preloader />
           <CustomCursor />
+          <ScheduleMeet />
+          <ThemeToggle />
           {children}
         </ThemeProvider>
       </body>
