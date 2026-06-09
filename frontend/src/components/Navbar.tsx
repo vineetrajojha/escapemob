@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
     Menu, X, ChevronDown, 
-    Code, Palette, TrendingUp, Megaphone, Smartphone, Layout, Globe, Star, FileText, ArrowRight, Video, Mail, MessageCircle, BarChart, PenTool, Image as ImageIcon, Database, Cloud, BookOpen, ShoppingCart, Home as HomeIcon, Coffee, Heart, Briefcase, Phone, Instagram, Facebook, Twitter, Linkedin
+    Code, Palette, TrendingUp, Megaphone, Smartphone, Layout, Globe, Star, FileText, ArrowRight, Video, Mail, MessageCircle, BarChart, PenTool, Image as ImageIcon, Database, Cloud, BookOpen, ShoppingCart, Home as HomeIcon, Coffee, Heart, Briefcase, Phone, Instagram, Facebook, Twitter, Linkedin, ArrowUpRight
 } from "lucide-react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import Button from "./Button";
@@ -226,23 +226,23 @@ export default function Navbar() {
 
             {/* Main Navbar */}
             <div className="w-full flex justify-center pt-4 px-4">
-                <nav className={`relative transition-all duration-300 rounded-full px-4 py-2 flex items-center justify-between w-full max-w-[1400px] shadow-sm border ${scrolled ? "bg-white dark:bg-black/80 backdrop-blur-md border-slate-200 dark:border-white/10" : "bg-white/90 dark:bg-black/50 backdrop-blur-sm border-transparent"}`}>
+                <nav className="relative transition-all duration-300 rounded-full px-6 py-2.5 flex items-center justify-between w-full max-w-[1400px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border bg-white dark:bg-black/90 border-gray-200 dark:border-white/10">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 pl-2" onClick={closeMobileMenu}>
+                <Link href="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
                     <img
                         src="/logo-light.png"
                         alt="EscapeMob"
-                        className="h-14 md:h-16 w-auto object-contain dark:hidden"
+                        className="h-10 md:h-[42px] w-auto object-contain dark:hidden"
                     />
                     <img
                         src="/logo-dark.png"
                         alt="EscapeMob"
-                        className="h-14 md:h-16 w-auto object-contain hidden dark:block"
+                        className="h-10 md:h-[42px] w-auto object-contain hidden dark:block"
                     />
                 </Link>
 
                 {/* Desktop Links */}
-                <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[15px] font-medium text-slate-600 dark:text-gray-300 static">
+                <div className="hidden lg:flex items-center gap-4 xl:gap-8 text-[15px] font-medium text-slate-600 dark:text-gray-300 static flex-1 justify-center">
                     <Link href="/#home" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">Home</Link>
                     <Link href="/#about" className="hover:text-slate-900 dark:hover:text-white transition-colors py-4">About</Link>
                     
@@ -380,11 +380,12 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden lg:block">
-                    <Link href="#contact">
-                        <Button variant="primary" className="!py-2.5 !px-5 text-sm">
-                            Get a Quote
-                        </Button>
+                <div className="hidden lg:flex items-center justify-end">
+                    <Link href="/#contact" className="flex items-center gap-3 bg-[#0a0a0a] hover:bg-black/90 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black px-6 py-2.5 rounded-full transition-colors font-medium text-[15px] shadow-md">
+                        Get a Quote
+                        <div className="bg-white dark:bg-black w-[22px] h-[22px] rounded-full flex items-center justify-center shrink-0">
+                            <ArrowUpRight className="w-3.5 h-3.5 text-black dark:text-white" />
+                        </div>
                     </Link>
                 </div>
 

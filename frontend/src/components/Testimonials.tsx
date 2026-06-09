@@ -28,9 +28,9 @@ const reviews = [
 
 const Testimonials = () => {
     return (
-        <section className="py-10 relative z-10 w-full overflow-hidden bg-[#0c0d0d]">
+        <section className="relative z-10 w-full overflow-hidden bg-[#0c0d0d] pt-12 pb-20">
             {/* Dark Container */}
-            <div className="relative pt-20 pb-20 w-full border-t border-[#202222] mt-12 px-4 md:px-[10%]">
+            <div className="relative w-full px-4 md:px-[10%]">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
