@@ -62,12 +62,12 @@ export default function ScheduleMeet() {
                                         <div className="bg-slate-50 dark:bg-[#121314] p-4 rounded-2xl border border-gray-100 dark:border-white/5 group hover:border-purple-500/50 transition-colors">
                                             <Mail className="w-5 h-5 text-purple-500 mb-2 group-hover:scale-110 transition-transform" />
                                             <p className="text-xs text-gray-500 mb-1">Email Us</p>
-                                            <a href="mailto:teamescapemob@gmail.com" className="text-[13px] font-medium text-slate-900 dark:text-white hover:text-purple-500 truncate block">teamescapemob@gmail.com</a>
+                                            <a href="mailto:hello@escapemob.com" className="text-[13px] font-medium text-slate-900 dark:text-white hover:text-purple-500 truncate block">hello@escapemob.com</a>
                                         </div>
                                         <div className="bg-slate-50 dark:bg-[#121314] p-4 rounded-2xl border border-gray-100 dark:border-white/5 group hover:border-green-500/50 transition-colors">
                                             <Phone className="w-5 h-5 text-green-500 mb-2 group-hover:scale-110 transition-transform" />
                                             <p className="text-xs text-gray-500 mb-1">Call Us</p>
-                                            <a href="tel:+919999999999" className="text-[13px] font-medium text-slate-900 dark:text-white hover:text-green-500 truncate block">+91 9999999999</a>
+                                            <a href="tel:+919717504789" className="text-[13px] font-medium text-slate-900 dark:text-white hover:text-green-500 truncate block">+91 97175 04789</a>
                                         </div>
                                     </div>
 

@@ -52,7 +52,7 @@ const Contact = () => {
 
                         <div className="hidden lg:block space-y-4 text-muted-foreground">
                             <p>
-                                <strong>Email:</strong> teamescapemob@gmail.com
+                                <strong>Email:</strong> hello@escapemob.com
                             </p>
                             <p>
                                 <strong>Phone:</strong> +91 97175 04789

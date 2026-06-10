@@ -206,21 +206,21 @@ export default function Navbar() {
             {/* Announcement Bar */}
             <div className="hidden lg:flex w-full bg-[#0c0d0d] border-b border-[#202222] py-2 px-8 items-center justify-between text-[13px] font-medium text-gray-300 z-50 relative">
                 <div className="flex items-center gap-6">
-                    <a href="tel:+919999999999" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <a href="tel:+919717504789" className="flex items-center gap-2 hover:text-white transition-colors">
                         <Phone size={14} className="text-blue-400" />
-                        +91 9999999999
+                        +91 97175 04789
                     </a>
-                    <a href="mailto:teamescapemob@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <a href="mailto:hello@escapemob.com" className="flex items-center gap-2 hover:text-white transition-colors">
                         <Mail size={14} className="text-purple-400" />
-                        teamescapemob@gmail.com
+                        hello@escapemob.com
                     </a>
                 </div>
                 <div className="flex items-center gap-4">
                     <span className="text-[#EBEBEB]/60">Follow us:</span>
-                    <a href="#" className="hover:text-blue-400 transition-colors"><Instagram size={14} /></a>
+                    <a href="https://www.instagram.com/escapemob_india/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors"><Instagram size={14} /></a>
                     <a href="#" className="hover:text-blue-400 transition-colors"><Facebook size={14} /></a>
                     <a href="#" className="hover:text-blue-400 transition-colors"><Twitter size={14} /></a>
-                    <a href="#" className="hover:text-blue-400 transition-colors"><Linkedin size={14} /></a>
+                    <a href="https://www.linkedin.com/company/escapemob" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors"><Linkedin size={14} /></a>
                 </div>
             </div>
 

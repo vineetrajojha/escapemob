@@ -30,7 +30,7 @@ export function ThemeToggle() {
                 </div>
             )}
             {/* WhatsApp Button */}
-            <a href="https://wa.me/91999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white dark:bg-[#1c1c26] border border-gray-200 dark:border-white/10 text-slate-900 dark:text-white px-4 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 font-medium text-[13px]">
+            <a href="https://wa.me/919717504789" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white dark:bg-[#1c1c26] border border-gray-200 dark:border-white/10 text-slate-900 dark:text-white px-4 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 font-medium text-[13px]">
                 <FaWhatsapp className="w-5 h-5 text-green-500" />
                 <span className="hidden sm:inline">WhatsApp</span>
             </a>

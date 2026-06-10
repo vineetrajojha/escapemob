@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Instagram, Youtube, Facebook, Twitter } from "lucide-react";
+import { ArrowUpRight, Instagram, Youtube, Facebook, Twitter, Linkedin } from "lucide-react";
 import NewsletterForm from "./NewsletterForm";
 import { motion } from "framer-motion";
 
@@ -62,15 +62,15 @@ export default function Footer() {
                         </div>
                         <div>
                             <p className="font-semibold text-foreground mb-2 tracking-wide uppercase text-[12px]">Contact</p>
-                            <a href="mailto:teamescapemob@gmail.com" className="block hover:text-blue-400 transition-colors">teamescapemob@gmail.com</a>
-                            <a href="tel:+919999999999" className="block hover:text-blue-400 transition-colors mt-1">+91 9999999999</a>
+                            <a href="mailto:hello@escapemob.com" className="block hover:text-blue-400 transition-colors">hello@escapemob.com</a>
+                            <a href="tel:+919717504789" className="block hover:text-blue-400 transition-colors mt-1">+91 97175 04789</a>
                         </div>
                     </div>
 
                     <div className="mt-10">
                         <p className="font-semibold text-foreground mb-4 tracking-wide uppercase text-[12px]">Follow Us</p>
                         <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
+                            <a href="https://www.instagram.com/escapemob_india/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
                                 <Instagram size={18} />
                             </a>
                             <a href="#" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
@@ -79,8 +79,8 @@ export default function Footer() {
                             <a href="#" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
                                 <Twitter size={18} />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
-                                <Youtube size={18} />
+                            <a href="https://www.linkedin.com/company/escapemob" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-muted/50 border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted hover:border-foreground/20 transition-all">
+                                <Linkedin size={18} />
                             </a>
                         </div>
                     </div>
@@ -171,11 +171,25 @@ export default function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                className="border-t border-border pt-12 text-center"
+                className="border-t border-border pt-12 pb-6 text-center flex flex-col items-center"
             >
-                <h1 className="text-[12vw] font-bold text-foreground/5 leading-none select-none">
+                <h1 className="text-[12vw] font-bold text-foreground/5 leading-none select-none mb-8">
                     EscapeMob
                 </h1>
+                
+                {/* Legal Links & Copyright */}
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground w-full border-t border-border/50 pt-6 px-4">
+                    <p className="text-center md:text-left">
+                        &copy; {new Date().getFullYear()} EscapeMob. All rights reserved. <br className="md:hidden" />
+                        <span className="hidden md:inline"> | </span>
+                        Made with ❤️ by <a href="https://vineetraj.tech" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-blue-500 font-medium transition-colors">Vineet</a>
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+                        <Link href="/sitemap" className="hover:text-foreground transition-colors">Sitemap</Link>
+                        <Link href="/terms" className="hover:text-foreground transition-colors">Terms & Conditions</Link>
+                        <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+                    </div>
+                </div>
             </motion.div>
         </footer>
     );
